@@ -1,0 +1,15 @@
+COMPROBADOS:
+
+1ºESO
+SELECT SUM(IF(`E1RLC` = 1, 1, 0)) as E1RLC,SUM(if(`E1RMT` = 1, 1, 0)) as E1RMT,SUM(if(`E1FR ` = 1, 1, 0)) as E1FR,SUM(if(`E1TMU` = 1, 1, 0)) as E1TMU,SUM(if(`E1REL` = 1, 1, 0)) as E1REL,SUM(if(`E1VE` = 1, 1, 0)) as E1VE FROM matriculacion;          
+2ºESO
+SELECT SUM(IF(`E2RLC` = 1, 1, 0))as E2RLC,SUM(IF(`E2RMT` = 1, 1, 0)) as E2RMT,SUM(IF(`E2FR` = 1, 1, 0)) as E2FR,SUM(IF(`E2IC` = 1, 1, 0)) as E2IC,SUM(IF(`E2REL` = 1, 1, 0)) as E1REL,SUM(IF(`E2HCR` = 1, 1, 0)) as E2HCR,SUM(IF(`E2MAE` = 1, 1, 0)) as E2MAE from matriculacion;
+3ºESO
+SELECT SUM(IF(`E3CUC` = 1, 1, 0)) as E3CUC,SUM(IF(`E3AMT` = 1, 1, 0)) as E3AMT,SUM(IF(`E3IAEE` = 1, 1, 0)) as E3IAEE,SUM(IF(`E3FR` = 1, 1, 0)) as E3FR,SUM(IF(`E3MAP` = 1, 1, 0)) as E3MAP,SUM(IF(`E3MAC` = 1, 1, 0)) as E3MAC,SUM(IF(`E3VE` = 1, 1, 0)) as E3VE,SUM(IF(`E3REL` = 1, 1, 0)) as E3REL from matriculacion;
+4ºESO
+SELECT SUM(IF(`E4MATB` = 1, 1, 0)) as E4MATB,SUM(IF(`E4TEC` = 1, 1, 0)) as E4TEC,SUM(IF(`E4EPV` = 1, 1, 0)) as E4EPV, SUM(IF(`E4INF` = 1, 1, 0)) as E4INF,SUM(IF(`E4BYG` = 1, 1, 0)) as E4BYG,SUM(IF(`E4FYQ` = 1, 1, 0)) as E4FYQ,SUM(IF(`E4FRA` = 1, 1, 0)) as E4FRA,SUM(IF(`E4LAT` = 1, 1, 0)) as E4LAT,SUM(IF(`E4MUS` = 1, 1, 0)) as E4MUS, SUM(IF(`E4MATA` = 1, 1, 0)) as E4MATA,SUM(IF(`E4REL` = 1, 1, 0)) as E1REL,SUM(IF(`E4HCR` = 1, 1, 0)) as E4HCR,SUM(IF(`E4MAE` = 1, 1, 0)) as E4MAE,SUM(IF(`E4AMT` = 1, 1, 0)) as E4AMT,SUM(IF(`E4AMB` = 1, 1, 0)) as E1E4AMB, SUM(IF(`E4AFQ` = 1, 1, 0)) as E4FQ,SUM(IF(`E4IEE` = 1, 1, 0)) as E4IEE,SUM(IF(`E4LITU` = 1, 1, 0)) as E4LITU,SUM(IF(`E4CUC` = 1, 1, 0)) as E4CUC,SUM(IF(`E4FR` = 1, 1, 0)) as E4FR,SUM(IF(`E4IE` = 1, 1, 0)) as E4IE FROM matriculacion; 
+1ºBACH
+SELECT SUM(IF(`B1LATI` = 1, 1, 0)) as B1LATI,SUM(IF(`B1HMC` = 1, 1, 0)) as B1HMC,SUM(IF(`B1MCSI` = 1, 1, 0)) as B1MCSI,SUM(IF(`B1GRI` = 1, 1, 0)) as B1GRI,SUM(IF(`B1LITU` = 1, 1, 0)) as B1LITU,SUM(IF(`B1ECO` = 1, 1, 0)) as B1ECO,SUM(IF(`B1MATI` = 1, 1, 0)) as B1MATI,SUM(IF(`B1FYQ` = 1, 1, 0)) as B1FYQ,SUM(IF(`B1BYG` = 1, 1, 0)) as B1BYG,SUM(IF(`B1DT` = 1, 1, 0)) as B1DT,SUM(IF(`B1REL` = 1, 1, 0)) as B1REL,SUM(IF(`B1TICI` = 1, 1, 0)) as B1TICI,SUM(IF(`B1FR` = 1, 1, 0)) as B1FR,SUM(IF(`B1CC` = 1, 1, 0)) as B1CC,SUM(IF(`B1TINI` = 1, 1, 0)) as B1TINI,SUM(IF(`B1APL` = 1, 1, 0)) as B1APL,SUM(IF(`B1DAI` = 1, 1, 0)) as B1DAI FROM matriculacion;
+2ºBACH
+SELECT SUM(IF(`B2HART` = 1, 1, 0)) as B2HART,SUM(IF(`B2GEO` = 1, 1, 0)) as B2GEO,SUM(IF(`B2EEM` = 1, 1, 0)) as B2EEM,SUM(IF(`B2LATII` = 1, 1, 0)) as B2LATII,SUM(IF(`B2GRII` = 1, 1, 0)) as B2GRII,SUM(IF(`B2MCSII` = 1, 1, 0)) as B2MCSII,SUM(IF(`B2LITU` = 1, 1, 0)) as B2LITU,SUM(IF(`B2MATII` = 1, 1, 0)) as B2MATII,SUM(IF(`B2FIS` = 1, 1, 0)) as B2FIS,SUM(IF(`B2DTII` = 1, 1, 0)) as B2DTII,SUM(IF(`B2ELE` = 1, 1, 0)) as B2ELE,SUM(IF(`B2CTM` = 1, 1, 0)) as B2CTM,SUM(IF(`B2BIO` = 1, 1, 0)) as B2BIO,SUM(IF(`B2QUI` = 1, 1, 0)) as B2QUI,SUM(IF(`B2AINGII` = 1, 1, 0)) as B2AINGII,SUM(IF(`B2FRA` = 1, 1, 0)) as B2QUI,SUM(IF(`B2PSI` = 1, 1, 0)) as B2PSI,SUM(IF(`B2GEOL` = 1, 1, 0)) as B2GEOL,SUM(IF(`B2TINII` = 1, 1, 0)) as B2TINII,SUM(IF(`B2FGA` = 1, 1, 0)) as B2FGA FROM matriculacion;
+

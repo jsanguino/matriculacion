@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQeury.steps Demos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+<!--    <link rel="stylesheet" href="css/jquery.steps.css">-->
+        <link rel="stylesheet" href="css/matriculacion.css">
+        <script src="./lib/modernizr-2.6.2.min.js"></script>
+        <script src="./js/jquery-1.9.1.min.js"></script>
+        <script src="./js/jquery.cookie-1.3.1.js"></script>
+<!--    <script src="./js/jquery.steps.js"></script>-->
+        <script src="./js/jquery-ui.js"></script>
+        <script src="./js/jquery.validate.js"></script>
+        <script src="./js/matriculacion.js"></script>
+	<script>
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+<div class="content">
+<h1>Matriculación</h1>
+
+<form class="cmxform" id="matriculaForm" method="get" action="./resultados.php">
+	<div id="wizard">
+		
+		<h2>Primer Paso</h2>               
+        <section>
+		<fieldset>
+			<div id="datos_alumno">
+			<legend>Datos del Alumno</legend>
+			<p>
+				<label for="anombre">Nombre</label>
+				<input id="anombre" name="anombre" type="text">
+			</p>
+			<p>
+				<label for="aapellidos">Apellidos</label>
+				<input id="aapellidos" name="aapellidos" type="text">
+			</p>
+			<p>
+				<label for="adomicilio">Domicilio</label>
+				<input id="adomicilio" name="adomicilio">
+			</p>
+			<p>
+				<label for="atelefono">Teléfono</label>
+				<input id="atelefono" name="atelefono">
+			</p>
+			</div>
+			
+			<div id="datos_madre">
+			<legend>Datos de la madre</legend>
+			<p>
+				<label for="mnombre">Nombre</label>
+				<input id="mnombre" name="mnombre" type="text">
+			</p>
+			<p>
+				<label for="mapellidos">Apellidos</label>
+				<input id="mapellidos" name="mapellidos" type="text">
+			</p>
+			<p>
+				<label for="mdomicilio">Domicilio</label>
+				<input id="mdomicilio" name="mdomicilio">
+			</p>
+			<p>
+				<label for="mtelefono">Teléfono</label>
+				<input id="mtelefono" name="mtelefono">
+			</p>
+			<p>
+				<label for="memail">Correo electrónico</label>
+				<input id="memail" name="memail">
+			</p>
+			</div>
+			<div id="datos_padre">
+			<legend>Datos del padre</legend>
+			<p>
+				<label for="pnombre">Nombre</label>
+				<input id="pnombre" name="pnombre" type="text">
+			</p>
+			<p>
+				<label for="papellidos">Apellidos</label>
+				<input id="papellidos" name="papellidos" type="text">
+			</p>
+			<p>
+				<label for="pdomicilio">Domicilio</label>
+				<input id="pdomicilio" name="pdomicilio">
+			</p>
+			<p>
+				<label for="ptelefono">Teléfono</label>
+				<input id="ptelefono" name="ptelefono">
+			</p>
+			</div>
+			</section>
+<!--			
+		<h2>Segundo Paso</h2>               
+        <section>
+			<p>
+				<label for="confirm_password">Confirm password</label>
+				<input id="confirm_password" name="confirm_password" type="password">
+			</p>
+			<p>
+				<label for="email">Email</label>
+				<input id="email" name="email" type="email">
+			</p>
+			<p>
+				<label for="agree">Please agree to our policy</label>
+				<input type="checkbox" class="checkbox" id="agree" name="agree">
+			</p>
+			
+			<p>
+				<label for="religion">I'd like to receive the religion</label>
+				<div id="excluye">
+				 <input type="radio" class="radio" id="religion" name="religion" value='0'>Religión
+				 <input type="radio" class="radio" id="religion" name="religion" value='1'>Valores Éticos
+				 <input type="radio"               id="religion" name="religion" value="0">
+				 
+				 
+				</div>
+			</p>
+
+			<div id="aut_religion">
+			<fieldset id="newsletter_topics">
+				<legend>Topics (select at least two) - note: would be hidden when religion isn't selected, but is visible here for the demo</legend>
+				<label for="topic_marketflash">
+					<input type="checkbox" id="topic_marketflash" value="marketflash" name="topic">Marketflash
+				</label>
+				<label for="topic_fuzz">
+					<input type="checkbox" id="topic_fuzz" value="fuzz" name="topic">Latest fuzz
+				</label>
+				<label for="topic_digester">
+					<input type="checkbox" id="topic_digester" value="digester" name="topic">Mailing list digester
+				</label>
+				<label for="topic" class="error">Please select at least two topics you'd like to receive.</label>
+			</fieldset>
+			</div>
+			<p>
+				<input class="submit" type="submit" value="Submit">
+			</p>
+		</fieldset>
+		</section>
+-->
+<!--
+		<form id="matriculacion" id="commentForm" action="#" style="display: none;">
+        <div class="content">
+            <h1>Matriculación</h1>
+            <div id="wizard">
+				
+				
+			
+			<h2>Primer Paso</h2>               
+                <section>
+				<p>
+				<label for="anombre">Name (required, at least 2 characters)</label>
+					<input id="anombre" name="anombre" minlength="2" type="text" required>
+				</p>
+				<p>
+					<label for="cemail">E-Mail (required)</label>
+					<input id="cemail" type="email" name="email" required>
+				</p>
+				<p>
+					<label for="curl">URL (optional)</label>
+					<input id="curl" type="url" name="url">
+				</p>
+				</section>
+
+                <h2>Primer Paso</h2>               
+                <section>
+					<legend>Datos del alumno y su familia</legend>
+					<h4>Código:<input id="codigo" name="codigo" type="text" class="required">
+						<div id='alumno'>
+							Nombre: <input id="anombre" name="anombre" type="text" required>
+							Apellidos: <input id="aapellidos" name="aapellidos" type="text" required>
+							Domcilio: <input id="adomicilio" name="aapellidos" type="text" class="required">
+							Teléfono: <input id="atelefono" name="aapellidos" type="text" class="required">
+						</div>
+						<div id='madre'>					
+							Nombre: <input id="mnombre" name="mnombre" type="text" class="required">
+							Apellidos: <input id="mapellidos" name="mapellidos" type="text" class="required">
+							Domcilio: <input id="mdomicilio" name="mapellidos" type="text" class="required">
+							Teléfono: <input id="mtelefono" name="mapellidos" type="text" class="required">					
+						</div>
+						<div id='padre'>
+							Nombre: <input id="pnombre" name="pnombre" type="text" class="required">
+							Apellidos: <input id="papellidos" name="papellidos" type="text" class="required">
+							Domcilio: <input id="pdomicilio" name="papellidos" type="text" class="required">
+							Teléfono: <input id="ptelefono" name="papellidos" type="text" class="required">
+						</div>
+                </section>
+-->
+                <h2>Segundo Paso</h2>
+                <section>
+					<button type="button" class="btn" onclick="obtenerDatos();">Clave</button>
+					<div id="curso">1ºESO</div>
+
+<!--					
+			<div id='izquierda'>
+					<div id='titulo3'>Obligatorias</div>
+					<div id='obligatorias'></div>
+				</div>
+-->
+
+				<div id='centro'>
+					<div id='titulo3'>Optativas</div>
+					<div id='optativas1'></div>
+				</div>
+				
+				<div id='derecha'>
+					<div id='optativas2'>
+						<ul class="lista_optativas">
+							<li>Ampliación Matemáticas</li>
+							<li>Ampliación Lengua</li>
+							<li>Francés</li>
+						</ul>
+						<div id="caja_seleccion">
+						Arrastre aquí TODAS las asignaturas de la columna de la izquierda
+						y colóquelas en orden de preferencia
+							<ul class="seleccion"><li>Ampliación Matemáticas</li></ul>
+						</div>
+					</div>
+				</div>
+                </section>
+
+                <h2>Tercer Paso</h2>
+                <section>
+					<div id="autorizaciones">
+                    <p>IDEA: Validar el formulario presente con el botón Siguiente.</p>
+                        <div id="autorizacion"><input type="radio" name="auth_fotos">Autorizo</div><div id="autorizacion"><input type="radio" name="auth_fotos">No Autorizo</div>
+					<p>Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo condimentum dapibus. Fusce eros justo, 
+                        pellentesque non euismod ac, rutrum sed quam. Ut non mi tortor. Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat. 
+                        Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui commodo lectus sollicitudin in auctor mauris 
+                        venenatis.</p>
+                        <div id="autorizacion"><input type="radio" name="auth_fotos">Autorizo</div><div id="autorizacion"><input type="radio" name="auth_fotos">No Autorizo</div>
+				
+						<div id="aut_religion">
+							<p>En cumplimiento con lo dispuesto en el Decreto 23/2007, de 10 de mayo, por el que se establece para la Comunidad de Madrid el currículo de la Educación Secundaria Obligatoria, en el que se regula la enseñanza de la Religión, manifiesto el deseo de que mi hijo/a $NombreAlumno que durante el presente año escolar (2015/2016) cursará $CURSO de ESO, reciba durante este curso, las enseñanzas correspondientes.</p>
+							<div id="tiporeligion"><input type="radio" name="tiporeligion">R. Católica</div>
+							<div id="tiporeligion"><input type="radio" name="tiporeligion">R. Evangélica</div>
+							<div id="tiporeligion"><input type="radio" name="tiporeligion">R. Judía</div>
+							<div id="tiporeligion"><input type="radio" name="tiporeligion">R. Islámica</div>
+						</div>
+					</div>
+				</section>
+                <h2>Impresión de la solicitud</h2>
+                <section>
+					<p>Ya puede imprimir el documento.</p>
+					<p>Recuerde que no se habrá matriculado hasta que no <b>entregue el documento firmado</b>.</p>
+					<p>Si no tiene una impresora cerca no se preocupe puede guardar el documento e imprimirlo cuando tenga una.</p>
+					<p>Muchas gracias</p>
+					<button type="button" id="imprimir" class="btn" onclick="imprimirMatricula();">Imprimir Matrícula</button>
+                </section>
+                
+            <!--</div> -->
+        </div> <!-- wizard -->
+
+
+        </form>
+        </div>
+
+    </body>
+</html>

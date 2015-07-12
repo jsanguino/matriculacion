@@ -1,0 +1,296 @@
+.anno{
+	position:absolute;
+	right: 25px;
+	top: 4px;
+	color: #000dd3;
+	font-size: 1.7em;
+}
+
+#alumno {
+	display: none;
+	float: left;
+	width: 32%;
+	height: 90px;
+	margin: 5px;
+	border-right: 2px;
+}
+#autorizacion {
+	float: left;
+	width: 10%;
+}
+
+#autorizaciones{
+	font-size: .8em;
+}
+#aut_religion{
+	display: none;
+}
+#caja_seleccion{
+	float:left;
+	width:50%;
+	margin-bottom: 15px;
+	border:4px dashed #1E90FF;
+	font-size: .7em;
+	
+}
+		
+#curso{
+	position:absolute;
+	left: 15px;
+	top: 4px;
+	color: #000dd3;
+	font-size: 1.2em;
+}
+#datos_alumno{
+	float: left;
+	width: 31%;
+	padding: 1%;
+	font-size: .8em;
+}
+#datos_madre{
+	float: left;
+	width: 31%;
+	padding: 1%;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	margin-right: 3px;
+	margin-left: 3px;
+	font-size: .8em;
+}
+#datos_padre{
+	float: left;
+	width: 31%;
+	padding: 1%;
+	font-size: .8em;
+}
+
+// posición de los bloques de asignaturas
+#caja_optativas{
+		width: 99%;
+}
+#derecha {
+	float: left;
+	width: 45%;
+	height: 90px;
+	margin: 5px;
+	border-right: 2px;
+}
+#centro {
+	float: left;
+	width: 30%;
+	height: 90px;
+	margin: 5px;
+	border: 4px dashed #FFA500;;
+}
+#izquierda{
+	float: left;
+	width: 65%;
+	height: 90px;
+	margin: 5px;
+	border-right: 2px;
+	border: 4px dashed #FFA500;
+}
+#madre {
+	display: none;
+	float: left;
+	width: 32%;
+	height: 90px;
+	margin: 5px;
+	border-right: 2px;
+}
+#padre {
+	display: none;
+	float: left;
+	width: 32%;
+	height: 90px;
+	margin: 5px;
+	border-right: 2px;
+}
+
+#titulo3{
+	display: block;
+	font-size: .95em;
+	color: #FFA500;
+}
+#titulo3_ca{
+	display: block;
+	font-size: .95em;
+	color: #FFA500;
+}
+#obligatorias{
+	font-family: "Tahoma";
+	color: #1C94C4;
+	font-size: .8em;
+	border-right: 1px solid;
+}
+#optativas1{
+	font-size: .8em;
+	border-top: 2px dashed;
+}
+#optativas1_ca{
+	font-size: .8em;
+	border-top: 2px dashed;
+}
+#paso{
+	display: block;
+}
+
+#separador{
+	display: block;
+	width:100%;
+	margin-bottom: 1px;
+	/*border:1px solid black;*/
+}
+
+#imprimir {
+	background:url(../images/pdf.png) no-repeat;
+	cursor:pointer;
+	width: 200px;
+	height: 100px;
+	border: none;
+}
+
+#lista_optativas {
+	width: 45%;
+	overflow: hidden;
+	margin: auto;
+}
+#lista_optativas_ca {
+	width: 45%;
+	overflow: hidden;
+	margin: auto;
+}
+#excluye{
+	display: inline-block;
+	width: 100%;
+}
+
+.lista_optativas{
+	margin: auto;
+	float: left;
+	padding: 0;
+	width: 40%;
+	font-size: .7em;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.lista_optativas_ca{
+	margin: auto;
+	float: left;
+	padding: 0;
+	width: 40%;
+	font-size: .7em;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.seleccion, .exclude, .manejador {
+	margin: auto;
+	padding: 30px;
+	width: 40%;
+	background: #F6F6F6 url("../images/ordenar.png") no-repeat scroll 50% 30%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.seleccion_ca, .exclude, .manejador {
+	margin: auto;
+	padding: 30px;
+	width: 40%;
+	background: #F6F6F6 url("../images/ordenar.png") no-repeat scroll 50% 30%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.seleccion.grid, seleccion_ca.grid {
+	overflow: hidden;
+}
+ 
+.lista_optativas li, .lista_optativas_ca li, .exclude li, .manejador li {
+	list-style: none;
+	border: 1px solid #000;
+	/*background: #F6F6F6 url("../images/user-icon.png") no-repeat scroll 90% 30%;*/
+	background: #E9E9E9 url("../images/iconos.png") no-repeat scroll right -179px;
+	font-family: "Tahoma";
+	color: #1C94C4;
+	margin: 5px;
+	padding: 5px;
+	height: 22px;
+	cursor: move;
+}
+	
+.seleccion li, .seleccion_ca li {
+	list-style: decimal;
+	border: 1px solid #000;
+	background:#C0E8CA url("../images/ok.png") no-repeat scroll 95% 40%;
+	font-family: "Tahoma";
+	font-size: 1.3em;
+	color: #000;
+	margin: 5px;
+	padding: 5px;
+	height: 22px;
+	color: #1E90FF;
+}
+.seleccion li:first-line, .seleccion_ca li:first-line {
+	font-size: 1em;
+	color: #fff;
+}
+.seleccion_ca li {
+	background: #C0E8CA url("../images/ok.png") no-repeat scroll 95% 40%;
+}
+		
+.manejador span {
+	cursor: move;
+}
+li.disabled {
+	opacity: 0.5;
+}
+.seleccion.grid li, .seleccion_ca.grid li {
+	line-height: 80px;
+	float: right;
+	width: 200px;
+	height: 200px;
+	text-align: center;
+}
+li.highlight {
+	background: #000;
+}
+
+.seleccion {
+	float: right;
+	padding-left: 5%;
+}
+li.seleccion-placeholder {
+	border: 1px dashed #CCC;
+	background: none;
+}
+ul.seleccion, ul.seleccion_ca{float:right;width:90%;padding: 54px 0px 5px 10px;margin-bottom: 10px;}
+input[type="radio"] {
+	float: left;
+	width: 15%;
+}
+
+		
+//Reescribir
+p, pre {
+	margin: 0px;
+}
+
+li{
+	
+}

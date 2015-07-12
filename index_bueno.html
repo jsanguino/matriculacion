@@ -1,0 +1,1390 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Matriculación 2015-2016 :: IES EUROPA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+        <!--
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        -->
+        <link rel="stylesheet" href="./css/screen.css">
+		<link rel="stylesheet" href="./css/jquery.steps.css">
+		<link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/matriculacion.css">
+        <link rel="stylesheet" href="./css/validacion.css">
+        <link rel="stylesheet" href="./css/alertify.core.css" />
+		<link rel="stylesheet" href="./css/alertify.default.css" />
+        <script src="./js/jquery-1.11.1.min.js"></script>
+        <script src="./js/jquery.cookie-1.3.1.js"></script>
+		<script src="./js/jquery.steps.js"></script>
+		<script src="./js/jquery-ui.js"></script>
+		<script src="./js/jquery.validate.js"></script>
+		<script src="./js/additional-methods.min.js"></script>
+		<script src="./js/dobPicker.js"></script>
+		<script src="./js/matriculacion.js"></script>
+		<script type="text/javascript" src="./js/alertify.js"></script>
+	<style>
+		#bloque{
+			display: inline-block;
+			width: 100%;
+		}
+		fieldset {
+			background-color:#EEEEEE;
+			max-width: 99%;
+			padding:16px;
+			border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			-webkit-border-radius: 5px;
+			-moz-box-shadow: 0px 1px 0px #f2f2f2;
+			-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+			border-left: 3%;
+			color: #0A3C59;
+		}
+
+		legend {
+			padding: 0.2em 0.5em;
+			border:1px solid #1E90FF;
+			color:#0A3C59;
+			font-size: 1.1em;
+			text-align:right;
+		}
+				
+		.error{
+			color: #d45252;
+			font-size: .8em;
+		}
+		.asignaturas{
+			height: 30em;
+		}
+		label{
+			width: 24%;
+		}
+		label.error {
+			display: none;
+		}
+		input{
+			width:73%;
+			border: 1px solid;
+			border-color: #1E90FF;
+		}
+		input[type="text"].error {
+			background: #fff url(images/invalid.png) no-repeat 98% center;
+			box-shadow: 0 0 5px #d45252;
+			border-color: #b03535
+		}
+		html{
+			background-color: #F2EAB0;
+		}
+		h1{
+			color: #1E90FF;
+		}
+		#aviso_optativas2{
+			display: none;
+			color: red;
+			font-size: .75em;
+		}
+		#aviso_optativas2_ca{
+			display: none;
+			color: red;
+			font-size: .75em;
+		}
+		#dia, #mes, #anno{
+			display: inline;
+			width: 20%
+		}
+		.button {
+   border: 2px solid #0a3c59;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   padding: 7.5px 15px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   text-shadow: #7ea4bd 0 1px 0;
+   color: #06426c;
+   font-size: 15px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border: 2px solid #0a3c59;
+   text-shadow: #1e4158 0 1px 0;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   color: #fff;
+   }
+.button:active {
+   text-shadow: #1e4158 0 1px 0;
+   border: 2px solid #0a3c59;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+   color: #fff;
+   }
+   #content{
+		display: none;
+	}
+	#error{
+		color: red;
+		font-size: .8em;
+		text-align: center;
+	}
+	#formulario{
+		margin: 2% 2% 2% 2%;	
+	}
+	#reserva{
+		display: block;
+		padding: 10px;
+	}
+	#reserva_ca{
+		display: block;
+		padding: 10px;
+	}
+	select {
+		width: 75%;
+		background: #FFF;
+		color: #585757;
+		padding: 5px;
+		font-size: 13px;
+		line-height: 100%;
+		border: 1px solid #1E90FF;
+		border-radius: 0;
+		height: 30px;
+		-webkit-appearance: none;
+	}
+ 
+	option {
+	}
+	#auth_txt {
+		float: left;
+		width: 75%;
+		padding: 10px;
+		padding: 5px;	
+		/*border: 3px dashed #1E90FF;*/
+		
+	}
+	#modalidad{
+	position: relative;
+	float:left;
+	width: 99%;
+	margin-top:3px;
+	}
+	#modalidad ul li{
+		list-style-position: inside; 
+		padding-left:0; 
+		margin-left:-25px;
+		font-size: .8em;
+	}
+	#modalidad_ca ul li{
+		list-style-position: inside; 
+		padding-left:0; 
+		margin-left:-25px;
+		font-size: .8em;
+	}
+	
+	#opcion4{
+		float:left;
+		width: 11%;
+		padding: 5px;
+		border: 1px solid #1E90FF;
+	}
+	#opcion3{
+		display:block;
+		width: 25%;
+		padding: 5px;
+		border: 1px solid #1E90FF;
+	}
+	
+	
+	#modalidaBach{
+		display:block;
+		width: 25%;
+		padding: 5px;
+		border: 1px solid #FFA500;
+	}
+	#modalidadBachCT{
+		float:left;
+		width: 22%;
+		padding: 2px 2px 1px 0px;
+		margin: 1px 4px 2px 1px;
+		border: 1px solid #1E90FF;
+	}
+	#opcionb1{
+		float:left;
+		width: 30%;
+		padding: 2px 2px 1px 0px;
+		margin: 1px 4px 2px 1px;
+		border: 1px solid #1E90FF;
+	}
+	#b2HCS{
+		display: none;
+	}
+	#b2CT{
+		display: none;
+	}
+	
+	#tit_opcion{
+		padding: 3px;
+		font-size: .9em;		
+	}
+	#tit_opcionE4{
+		padding: 3px;
+		font-size: .9em;		
+	}
+	#tit_opcionE4 input{
+		margin: 0;
+		padding: 0;
+		display: block;
+	}
+	
+	#mat_b1{
+		padding: 3px;
+		font-size: .8em;
+		margin-left: -35px;
+	}
+	#mat_b2{
+		padding: 3px;
+		font-size: .8em;
+		margin-left: -35px;
+	}
+	#opcionb2{
+		float:left;
+		width: 15%;
+		padding: 2px 2px 1px 0px;
+		margin: 1px 4px 2px 1px;
+		border: 1px solid #1E90FF;
+	}
+	#contenedor{
+		
+		border-top: 2px dashed #FFA500;
+		margin: 2px 0px 0px 2px;
+	}
+	#invisible{
+		display: none;
+	}
+	#txt_auth{
+		float: left;
+		width: 80%;
+		padding-right: 4px;
+		border-bottom: 1px dashed #FFA500;
+	}
+	#auth{
+		display: block;
+		float: left;
+		width: 10%;
+		border-bottom: 1px dashed #FFA500;
+
+	}
+	#recomendacion{
+		font-size: .75em;
+	}
+	#boton {
+    border-radius: 5px;
+    padding: 10px;
+    height: 15px;
+	display: inline-block;
+	background-color: #3085D6;
+	border-left-color: #3085D6;
+	border-right-color: #3085D6;
+	}	
+	a:link {
+    color: #ffffff;
+    text-decoration:none;
+    font-size: .9em;
+	}
+
+	a:visited {
+    color: #ffffff;
+    text-decoration:none;
+    font-size: .9em;
+	}
+	a:hover {
+    color: #ffffff;
+    text-decoration:none;
+	}
+	</style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">Estás usando un navegador <strong>desactualizado</strong>. Please <a href="http://browsehappy.com/">actualiza tu navegador</a> o <a href="https://www.mozilla.org/es-ES/firefox/new/">descarga Firefox.</a></p>
+        <![endif]-->
+<!--WRAPPER-->
+<div id='boton' class='izda'><a href='./ayuda/'>Necesito Ayuda</a></div>
+<div id='boton' class='dcha'><a href='http://ies.europa.rivas.educa.madrid.org/encuesta2/index.php/859912/lang-es' title="Si su hijo/a a cursado estudios en el IES Europa durante del curso 2014-2015, puede realizar la encuesta con el mismo código de matrícula">Realizar la encuesta</a></div>
+		<div id="wrapper">
+			<!--SLIDE-IN ICONS-->
+			<div class="user-icon"></div>
+			<!--END SLIDE-IN ICONS-->
+
+	<!--LOGIN FORM-->
+			<div class="login-form">
+				<div id='error'></div>
+
+	<!--HEADER-->
+				<div class="header">
+    <!--TITLE--><h1>Código</h1><!--END TITLE-->
+    <!--DESCRIPTION--><span>Introduzca el código de matriculación que se le ha proporcionado</span><!--END DESCRIPTION-->
+				</div>
+    <!--END HEADER-->
+	
+			<!--CONTENT-->
+				<div class="content">
+			<!--CÓDIGO--><input name="codigo" type="text" class="input codigo" onfocus="this.value=''" /><!--END PASSWORD-->
+				</div>
+				<!--END CONTENT-->
+				<!--FOOTER-->
+				<div class="footer"><!--LOGIN BUTTON-->
+					<button type="button" class="button" onclick="obtenerDatos();">Entrar</button>
+					<!-- <input type="submit" name="submit" value="Login" class="button" />   END LOGIN BUTTON-->
+				</div><!--END FOOTER-->
+			</div><!--END LOGIN FORM-->
+			<div id='recomendacion'>Recomendamos que use como navegador para rellenar la matrícula <a href='http://firefox.com'><img src='./images/firefox.png'></a></div>
+		</div><!--END WRAPPER-->
+<!--
+<button type="button" class="btn" onclick="obtenerDatos();">Clave</button>
+-->
+	<div id="content" class="content">
+	<div id="formulario">
+	<form class="cmxform" id="matriculaForm" method="get" action="./resultados.php">
+	
+	
+	<div id="bloque">
+		<fieldset>
+			<h1>Datos personales</h1>
+		<div id="datos_alumno">
+			<legend>Datos del Alumno</legend>
+			<p>
+				<label for="anombre">Nombre</label>
+				<input id="anombre" name="anombre" type="text" required>
+			</p>
+			<p>
+				<label for="aapellidos">Apellidos</label>
+				<input id="aapellidos" name="aapellidos" type="text" required>
+			</p>
+			<p>
+				<label for="fnacmiento">Fecha_Nacimiento</label>
+				<select id="dia" name="dia" required></select>
+				<select id="mes" name="mes" required></select>
+				<select id="anno" name="anno" required></select>
+			</p>
+			<p>
+				<label for="aDNI">NIF</label>
+				<input id="aDNI" name="aDNI" type="text">
+			</p>
+			<p>
+				<label for="adomicilio">Domicilio</label>
+				<input id="adomicilio" name="adomicilio" type="text" required>
+			</p>
+			<p>
+				<label for="alocalidad">Localidad</label>
+				<select name="alocalidad" required>
+					<option value="1230">Rivas-Vaciamadrid</option>
+					<option value="0014">Acebeda (La)</option>
+					<option value="0029">Ajalvir</option>
+					<option value="0035">Alameda del Valle</option>
+					<option value="0040">Alamo (El)</option>
+					<option value="0053">Alcalá de Henares</option>
+					<option value="0066">Alcobendas</option>
+					<option value="0072">Alcorcón</option>
+					<option value="0088">Aldea del Fresno</option>
+					<option value="0091">Algete</option>
+					<option value="0105">Alpedrete</option>
+					<option value="0112">Ambite</option>
+					<option value="0127">Anchuelo</option>
+					<option value="0133">Aranjuez</option>
+					<option value="0148">Arganda del Rey</option>
+					<option value="0151">Arroyomolinos</option>
+					<option value="0164">Atazar (El)</option>
+					<option value="0170">Batres</option>
+					<option value="0186">Becerril de la Sierra</option>
+					<option value="0199">Belmonte de Tajo</option>
+					<option value="0210">Berrueco (El)</option>
+					<option value="0203">Berzosa del Lozoya</option>
+					<option value="0225">Boadilla del Monte</option>
+					<option value="0231">Boalo (El)</option>
+					<option value="0246">Braojos</option>
+					<option value="0259">Brea de Tajo</option>
+					<option value="0262">Brunete</option>
+					<option value="0278">Buitrago del Lozoya</option>
+					<option value="0284">Bustarviejo</option>
+					<option value="0297">Cabanillas de la Sierra</option>
+					<option value="0301">Cabrera (La)</option>
+					<option value="0318">Cadalso de los Vidrios</option>
+					<option value="0323">Camarma de Esteruelas</option>
+					<option value="0339">Campo Real</option>
+					<option value="0344">Canencia</option>
+					<option value="0357">Carabaña</option>
+					<option value="0360">Casarrubuelos</option>
+					<option value="0376">Cenicientos</option>
+					<option value="0382">Cercedilla</option>
+					<option value="0395">Cervera de Buitrago</option>
+					<option value="0513">Chapinería</option>
+					<option value="0528">Chinchón</option>
+					<option value="0409">Ciempozuelos</option>
+					<option value="0416">Cobeña</option>
+					<option value="0468">Collado Mediano</option>
+					<option value="0474">Collado Villalba</option>
+					<option value="0455">Colmenar Viejo</option>
+					<option value="0437">Colmenar de Oreja</option>
+					<option value="0421">Colmenar del Arroyo</option>
+					<option value="0442">Colmenarejo</option>
+					<option value="0480">Corpa</option>
+					<option value="0493">Coslada</option>
+					<option value="0506">Cubas de la Sagra</option>
+					<option value="0534">Daganzo de Arriba</option>
+					<option value="0549">Escorial (El)</option>
+					<option value="0552">Estremera</option>
+					<option value="0565">Fresnedillas de la Oliva</option>
+					<option value="0571">Fresno de Torote</option>
+					<option value="0587">Fuenlabrada</option>
+					<option value="0590">Fuente el Saz de Jarama</option>
+					<option value="0604">Fuentidueña de Tajo</option>
+					<option value="0611">Galapagar</option>
+					<option value="0626">Garganta de los Montes</option>
+					<option value="0632">Gargantilla del Lozoya y Pinilla de Buitrago</option>
+					<option value="0647">Gascones</option>
+					<option value="0650">Getafe</option>
+					<option value="0663">Griñón</option>
+					<option value="0679">Guadalix de la Sierra</option>
+					<option value="0685">Guadarrama</option>
+					<option value="0698">Hiruela (La)</option>
+					<option value="0702">Horcajo de la Sierra-Aoslos</option>
+					<option value="0719">Horcajuelo de la Sierra</option>
+					<option value="0724">Hoyo de Manzanares</option>
+					<option value="0730">Humanes de Madrid</option>
+					<option value="0745">Leganés</option>
+					<option value="0758">Loeches</option>
+					<option value="0761">Lozoya</option>
+					<option value="9015">Lozoyuela-Navas-Sieteiglesias</option>
+					<option value="0783">Madarcos</option>
+					<option value="0796">Madrid</option>
+					<option value="0800">Majadahonda</option>
+					<option value="0822">Manzanares el Real</option>
+					<option value="0838">Meco</option>
+					<option value="0843">Mejorada del Campo</option>
+					<option value="0856">Miraflores de la Sierra</option>
+					<option value="0869">Molar (El)</option>
+					<option value="0875">Molinos (Los)</option>
+					<option value="0881">Montejo de la Sierra</option>
+					<option value="0894">Moraleja de Enmedio</option>
+					<option value="0908">Moralzarzal</option>
+					<option value="0915">Morata de Tajuña</option>
+					<option value="0920">Móstoles</option>
+					<option value="0936">Navacerrada</option>
+					<option value="0941">Navalafuente</option>
+					<option value="0954">Navalagamella</option>
+					<option value="0967">Navalcarnero</option>
+					<option value="0973">Navarredonda y San Mamés</option>
+					<option value="0992">Navas del Rey</option>
+					<option value="1006">Nuevo Baztán</option>
+					<option value="1013">Olmeda de las Fuentes</option>
+					<option value="1028">Orusco de Tajuña</option>
+					<option value="1049">Paracuellos de Jarama</option>
+					<option value="1065">Parla</option>
+					<option value="1071">Patones</option>
+					<option value="1087">Pedrezuela</option>
+					<option value="1090">Pelayos de la Presa</option>
+					<option value="1104">Perales de Tajuña</option>
+					<option value="1111">Pezuela de las Torres</option>
+					<option value="1126">Pinilla del Valle</option>
+					<option value="1132">Pinto</option>
+					<option value="1147">Piñuecar-Gandullas</option>
+					<option value="1150">Pozuelo de Alarcón</option>
+					<option value="1163">Pozuelo del Rey</option>
+					<option value="1179">Prádena del Rincón</option>
+					<option value="1185">Puebla de la Sierra</option>
+					<option value="9020">Puentes Viejas</option>
+					<option value="1198">Quijorna</option>
+					<option value="1202">Rascafría</option>
+					<option value="1219">Redueña</option>
+					<option value="1224">Ribatejada</option>
+					<option value="1245">Robledillo de la Jara</option>
+					<option value="1258">Robledo de Chavela</option>
+					<option value="1261">Robregordo</option>
+					<option value="1277">Rozas de Madrid (Las)</option>
+					<option value="1283">Rozas de Puerto Real</option>
+					<option value="1296">San Agustín del Guadalix</option>
+					<option value="1300">San Fernando de Henares</option>
+					<option value="1317">San Lorenzo de El Escorial</option>
+					<option value="1338">San Martín de Valdeiglesias</option>
+					<option value="1322">San Martín de la Vega</option>
+					<option value="1343">San Sebastián de los Reyes</option>
+					<option value="1356">Santa María de la Alameda</option>
+					<option value="1369">Santorcaz</option>
+					<option value="1375">Santos de la Humosa (Los)</option>
+					<option value="1381">Serna del Monte (La)</option>
+					<option value="1408">Serranillos del Valle</option>
+					<option value="1415">Sevilla la Nueva</option>
+					<option value="1436">Somosierra</option>
+					<option value="1441">Soto del Real</option>
+					<option value="1454">Talamanca de Jarama</option>
+					<option value="1467">Tielmes</option>
+					<option value="1473">Titulcia</option>
+					<option value="1489">Torrejón de Ardoz</option>
+					<option value="1505">Torrejón de Velasco</option>
+					<option value="1492">Torrejón de la Calzada</option>
+					<option value="1512">Torrelaguna</option>
+					<option value="1527">Torrelodones</option>
+					<option value="1533">Torremocha de Jarama</option>
+					<option value="1548">Torres de la Alameda</option>
+					<option value="9036">Tres Cantos</option>
+					<option value="1551">Valdaracete</option>
+					<option value="1564">Valdeavero</option>
+					<option value="1570">Valdelaguna</option>
+					<option value="1586">Valdemanco</option>
+					<option value="1599">Valdemaqueda</option>
+					<option value="1603">Valdemorillo</option>
+					<option value="1610">Valdemoro</option>
+					<option value="1625">Valdeolmos-Alalpardo</option>
+					<option value="1631">Valdepiélagos</option>
+					<option value="1646">Valdetorres de Jarama</option>
+					<option value="1659">Valdilecha</option>
+					<option value="1662">Valverde de Alcalá</option>
+					<option value="1678">Velilla de San Antonio</option>
+					<option value="1684">Vellón (El)</option>
+					<option value="1697">Venturada</option>
+					<option value="1718">Villa del Prado</option>
+					<option value="1701">Villaconejos</option>
+					<option value="1723">Villalbilla</option>
+					<option value="1739">Villamanrique de Tajo</option>
+					<option value="1744">Villamanta</option>
+					<option value="1757">Villamantilla</option>
+					<option value="1782">Villanueva de Perales</option>
+					<option value="1760">Villanueva de la Cañada</option>
+					<option value="1776">Villanueva del Pardillo</option>
+					<option value="1795">Villar del Olmo</option>
+					<option value="1809">Villarejo de Salvanés</option>
+					<option value="1816">Villaviciosa de Odón</option>
+					<option value="1821">Villavieja del Lozoya</option>
+					<option value="1837">Zarzalejo</option>
+					<option value="9999">Sin municipio asignado</option>
+			</select>
+			</p>
+			<p>
+				<label for="aprovincia">Provincia</label>
+				<select class="desplegable" name="aprovincia" required>
+					<option value="28">Madrid</option>
+					<option value="2">Albacete</option>
+					<option value="3">Alicante/Alacant</option>
+					<option value="4">Almería</option>
+					<option value="1">Araba/Álava</option>
+					<option value="33">Asturias</option>
+					<option value="5">Ávila</option>
+					<option value="6">Badajoz</option>
+					<option value="7">Balears, Illes</option>
+					<option value="8">Barcelona</option>
+					<option value="48">Bizkaia</option>
+					<option value="9">Burgos</option>
+					<option value="10">Cáceres</option>
+					<option value="11">Cádiz</option>
+					<option value="39">Cantabria</option>
+					<option value="12">Castellón/Castelló</option>
+					<option value="51">Ceuta</option>
+					<option value="13">Ciudad Real</option>
+					<option value="14">Córdoba</option>
+					<option value="15">Coruña, A</option>
+					<option value="16">Cuenca</option>
+					<option value="20">Gipuzkoa</option>
+					<option value="17">Girona</option>
+					<option value="18">Granada</option>
+					<option value="19">Guadalajara</option>
+					<option value="21">Huelva</option>
+					<option value="22">Huesca</option>
+					<option value="23">Jaén</option>
+					<option value="24">León</option>
+					<option value="27">Lugo</option>
+					<option value="25">Lleida</option>
+					<option value="29">Málaga</option>
+					<option value="52">Melilla</option>
+					<option value="30">Murcia</option>
+					<option value="31">Navarra</option>
+					<option value="32">Ourense</option>
+					<option value="34">Palencia</option>
+					<option value="35">Palmas, Las</option>
+					<option value="36">Pontevedra</option>
+					<option value="26">Rioja, La</option>
+					<option value="37">Salamanca</option>
+					<option value="38">Santa Cruz de Tenerife</option>
+					<option value="40">Segovia</option>
+					<option value="41">Sevilla</option>
+					<option value="42">Soria</option>
+					<option value="43">Tarragona</option>
+					<option value="44">Teruel</option>
+					<option value="45">Toledo</option>
+					<option value="46">Valencia/València</option>
+					<option value="47">Valladolid</option>
+					<option value="49">Zamora</option>
+					<option value="50">Zaragoza</option>	
+				</select>
+			</p>
+			<p>
+				<label for="aCP">Cód.Postal</label>
+				<input id="aCP" name="aCP" type="text">
+			</p>
+			<p>
+				<label for="lug_nac">Lugar Nacimiento</label>
+				<input id="lug_nac" name="lug_nac" type="text" required>
+			</p>
+			<p>
+				<label for="prov_nac">Prov. Nacimiento</label>
+				<input id="prov_nac" name="prov_nac" type="text" required>
+			</p>
+			<p>
+				<label for="pais_nac">País Nacimiento</label>
+				<input id="pais_nac" name="pais_nac" type="text" required>
+			</p>
+			<p>
+				<label for="nacionalidad">Nacionalidad</label>
+				<input id="nacionalidad" name="nacionalidad" type="text" required>
+			</p> 
+		</div>	
+
+<!-- EMPIEZAN LOS DATOS DE LA MADRE -->
+		<div id="datos_madre">
+			<legend>Datos de la Madre</legend>
+			<p>
+				<label for="mnombre">Nombre</label>
+				<input id="mnombre" name="mnombre" type="text">
+			</p>
+			<p>
+				<label for="mapellidos">Apellidos</label>
+				<input id="mapellidos" name="mapellidos" type="text">
+			</p>
+			<p>
+				<label for="mdni">NIF</label>
+				<input id="mDNI" name="mDNI" type="text">
+			</p>
+			<p>
+				<label for="mdomicilio">Domicilio</label>
+				<input id="mdomicilio" name="mdomicilio" type="text">
+			</p>
+			<p>
+				<label for="mlocalidad">Localidad</label>
+				<select name="mlocalidad">
+					<option value="1230">Rivas-Vaciamadrid</option>
+					<option value="0014">Acebeda (La)</option>
+					<option value="0029">Ajalvir</option>
+					<option value="0035">Alameda del Valle</option>
+					<option value="0040">Alamo (El)</option>
+					<option value="0053">Alcalá de Henares</option>
+					<option value="0066">Alcobendas</option>
+					<option value="0072">Alcorcón</option>
+					<option value="0088">Aldea del Fresno</option>
+					<option value="0091">Algete</option>
+					<option value="0105">Alpedrete</option>
+					<option value="0112">Ambite</option>
+					<option value="0127">Anchuelo</option>
+					<option value="0133">Aranjuez</option>
+					<option value="0148">Arganda del Rey</option>
+					<option value="0151">Arroyomolinos</option>
+					<option value="0164">Atazar (El)</option>
+					<option value="0170">Batres</option>
+					<option value="0186">Becerril de la Sierra</option>
+					<option value="0199">Belmonte de Tajo</option>
+					<option value="0210">Berrueco (El)</option>
+					<option value="0203">Berzosa del Lozoya</option>
+					<option value="0225">Boadilla del Monte</option>
+					<option value="0231">Boalo (El)</option>
+					<option value="0246">Braojos</option>
+					<option value="0259">Brea de Tajo</option>
+					<option value="0262">Brunete</option>
+					<option value="0278">Buitrago del Lozoya</option>
+					<option value="0284">Bustarviejo</option>
+					<option value="0297">Cabanillas de la Sierra</option>
+					<option value="0301">Cabrera (La)</option>
+					<option value="0318">Cadalso de los Vidrios</option>
+					<option value="0323">Camarma de Esteruelas</option>
+					<option value="0339">Campo Real</option>
+					<option value="0344">Canencia</option>
+					<option value="0357">Carabaña</option>
+					<option value="0360">Casarrubuelos</option>
+					<option value="0376">Cenicientos</option>
+					<option value="0382">Cercedilla</option>
+					<option value="0395">Cervera de Buitrago</option>
+					<option value="0513">Chapinería</option>
+					<option value="0528">Chinchón</option>
+					<option value="0409">Ciempozuelos</option>
+					<option value="0416">Cobeña</option>
+					<option value="0468">Collado Mediano</option>
+					<option value="0474">Collado Villalba</option>
+					<option value="0455">Colmenar Viejo</option>
+					<option value="0437">Colmenar de Oreja</option>
+					<option value="0421">Colmenar del Arroyo</option>
+					<option value="0442">Colmenarejo</option>
+					<option value="0480">Corpa</option>
+					<option value="0493">Coslada</option>
+					<option value="0506">Cubas de la Sagra</option>
+					<option value="0534">Daganzo de Arriba</option>
+					<option value="0549">Escorial (El)</option>
+					<option value="0552">Estremera</option>
+					<option value="0565">Fresnedillas de la Oliva</option>
+					<option value="0571">Fresno de Torote</option>
+					<option value="0587">Fuenlabrada</option>
+					<option value="0590">Fuente el Saz de Jarama</option>
+					<option value="0604">Fuentidueña de Tajo</option>
+					<option value="0611">Galapagar</option>
+					<option value="0626">Garganta de los Montes</option>
+					<option value="0632">Gargantilla del Lozoya y Pinilla de Buitrago</option>
+					<option value="0647">Gascones</option>
+					<option value="0650">Getafe</option>
+					<option value="0663">Griñón</option>
+					<option value="0679">Guadalix de la Sierra</option>
+					<option value="0685">Guadarrama</option>
+					<option value="0698">Hiruela (La)</option>
+					<option value="0702">Horcajo de la Sierra-Aoslos</option>
+					<option value="0719">Horcajuelo de la Sierra</option>
+					<option value="0724">Hoyo de Manzanares</option>
+					<option value="0730">Humanes de Madrid</option>
+					<option value="0745">Leganés</option>
+					<option value="0758">Loeches</option>
+					<option value="0761">Lozoya</option>
+					<option value="9015">Lozoyuela-Navas-Sieteiglesias</option>
+					<option value="0783">Madarcos</option>
+					<option value="0796">Madrid</option>
+					<option value="0800">Majadahonda</option>
+					<option value="0822">Manzanares el Real</option>
+					<option value="0838">Meco</option>
+					<option value="0843">Mejorada del Campo</option>
+					<option value="0856">Miraflores de la Sierra</option>
+					<option value="0869">Molar (El)</option>
+					<option value="0875">Molinos (Los)</option>
+					<option value="0881">Montejo de la Sierra</option>
+					<option value="0894">Moraleja de Enmedio</option>
+					<option value="0908">Moralzarzal</option>
+					<option value="0915">Morata de Tajuña</option>
+					<option value="0920">Móstoles</option>
+					<option value="0936">Navacerrada</option>
+					<option value="0941">Navalafuente</option>
+					<option value="0954">Navalagamella</option>
+					<option value="0967">Navalcarnero</option>
+					<option value="0973">Navarredonda y San Mamés</option>
+					<option value="0992">Navas del Rey</option>
+					<option value="1006">Nuevo Baztán</option>
+					<option value="1013">Olmeda de las Fuentes</option>
+					<option value="1028">Orusco de Tajuña</option>
+					<option value="1049">Paracuellos de Jarama</option>
+					<option value="1065">Parla</option>
+					<option value="1071">Patones</option>
+					<option value="1087">Pedrezuela</option>
+					<option value="1090">Pelayos de la Presa</option>
+					<option value="1104">Perales de Tajuña</option>
+					<option value="1111">Pezuela de las Torres</option>
+					<option value="1126">Pinilla del Valle</option>
+					<option value="1132">Pinto</option>
+					<option value="1147">Piñuecar-Gandullas</option>
+					<option value="1150">Pozuelo de Alarcón</option>
+					<option value="1163">Pozuelo del Rey</option>
+					<option value="1179">Prádena del Rincón</option>
+					<option value="1185">Puebla de la Sierra</option>
+					<option value="9020">Puentes Viejas</option>
+					<option value="1198">Quijorna</option>
+					<option value="1202">Rascafría</option>
+					<option value="1219">Redueña</option>
+					<option value="1224">Ribatejada</option>
+					<option value="1245">Robledillo de la Jara</option>
+					<option value="1258">Robledo de Chavela</option>
+					<option value="1261">Robregordo</option>
+					<option value="1277">Rozas de Madrid (Las)</option>
+					<option value="1283">Rozas de Puerto Real</option>
+					<option value="1296">San Agustín del Guadalix</option>
+					<option value="1300">San Fernando de Henares</option>
+					<option value="1317">San Lorenzo de El Escorial</option>
+					<option value="1338">San Martín de Valdeiglesias</option>
+					<option value="1322">San Martín de la Vega</option>
+					<option value="1343">San Sebastián de los Reyes</option>
+					<option value="1356">Santa María de la Alameda</option>
+					<option value="1369">Santorcaz</option>
+					<option value="1375">Santos de la Humosa (Los)</option>
+					<option value="1381">Serna del Monte (La)</option>
+					<option value="1408">Serranillos del Valle</option>
+					<option value="1415">Sevilla la Nueva</option>
+					<option value="1436">Somosierra</option>
+					<option value="1441">Soto del Real</option>
+					<option value="1454">Talamanca de Jarama</option>
+					<option value="1467">Tielmes</option>
+					<option value="1473">Titulcia</option>
+					<option value="1489">Torrejón de Ardoz</option>
+					<option value="1505">Torrejón de Velasco</option>
+					<option value="1492">Torrejón de la Calzada</option>
+					<option value="1512">Torrelaguna</option>
+					<option value="1527">Torrelodones</option>
+					<option value="1533">Torremocha de Jarama</option>
+					<option value="1548">Torres de la Alameda</option>
+					<option value="9036">Tres Cantos</option>
+					<option value="1551">Valdaracete</option>
+					<option value="1564">Valdeavero</option>
+					<option value="1570">Valdelaguna</option>
+					<option value="1586">Valdemanco</option>
+					<option value="1599">Valdemaqueda</option>
+					<option value="1603">Valdemorillo</option>
+					<option value="1610">Valdemoro</option>
+					<option value="1625">Valdeolmos-Alalpardo</option>
+					<option value="1631">Valdepiélagos</option>
+					<option value="1646">Valdetorres de Jarama</option>
+					<option value="1659">Valdilecha</option>
+					<option value="1662">Valverde de Alcalá</option>
+					<option value="1678">Velilla de San Antonio</option>
+					<option value="1684">Vellón (El)</option>
+					<option value="1697">Venturada</option>
+					<option value="1718">Villa del Prado</option>
+					<option value="1701">Villaconejos</option>
+					<option value="1723">Villalbilla</option>
+					<option value="1739">Villamanrique de Tajo</option>
+					<option value="1744">Villamanta</option>
+					<option value="1757">Villamantilla</option>
+					<option value="1782">Villanueva de Perales</option>
+					<option value="1760">Villanueva de la Cañada</option>
+					<option value="1776">Villanueva del Pardillo</option>
+					<option value="1795">Villar del Olmo</option>
+					<option value="1809">Villarejo de Salvanés</option>
+					<option value="1816">Villaviciosa de Odón</option>
+					<option value="1821">Villavieja del Lozoya</option>
+					<option value="1837">Zarzalejo</option>
+					<option value="9999">Sin municipio asignado</option>
+			</select>
+			</p>
+			<p>
+				<label for="mprovincia">Provincia</label>
+				<select name="mprovincia">
+					<option value="28">Madrid</option>
+					<option value="2">Albacete</option>
+					<option value="3">Alicante/Alacant</option>
+					<option value="4">Almería</option>
+					<option value="1">Araba/Álava</option>
+					<option value="33">Asturias</option>
+					<option value="5">Ávila</option>
+					<option value="6">Badajoz</option>
+					<option value="7">Balears, Illes</option>
+					<option value="8">Barcelona</option>
+					<option value="48">Bizkaia</option>
+					<option value="9">Burgos</option>
+					<option value="10">Cáceres</option>
+					<option value="11">Cádiz</option>
+					<option value="39">Cantabria</option>
+					<option value="12">Castellón/Castelló</option>
+					<option value="51">Ceuta</option>
+					<option value="13">Ciudad Real</option>
+					<option value="14">Córdoba</option>
+					<option value="15">Coruña, A</option>
+					<option value="16">Cuenca</option>
+					<option value="20">Gipuzkoa</option>
+					<option value="17">Girona</option>
+					<option value="18">Granada</option>
+					<option value="19">Guadalajara</option>
+					<option value="21">Huelva</option>
+					<option value="22">Huesca</option>
+					<option value="23">Jaén</option>
+					<option value="24">León</option>
+					<option value="27">Lugo</option>
+					<option value="25">Lleida</option>
+					<option value="29">Málaga</option>
+					<option value="52">Melilla</option>
+					<option value="30">Murcia</option>
+					<option value="31">Navarra</option>
+					<option value="32">Ourense</option>
+					<option value="34">Palencia</option>
+					<option value="35">Palmas, Las</option>
+					<option value="36">Pontevedra</option>
+					<option value="26">Rioja, La</option>
+					<option value="37">Salamanca</option>
+					<option value="38">Santa Cruz de Tenerife</option>
+					<option value="40">Segovia</option>
+					<option value="41">Sevilla</option>
+					<option value="42">Soria</option>
+					<option value="43">Tarragona</option>
+					<option value="44">Teruel</option>
+					<option value="45">Toledo</option>
+					<option value="46">Valencia/València</option>
+					<option value="47">Valladolid</option>
+					<option value="49">Zamora</option>
+					<option value="50">Zaragoza</option>	
+				</select>
+			</p>
+			<p>
+				<label for="mCP">Cód.Postal</label>
+				<input id="mCP" name="mCP" type="text">
+			</p>
+
+			<p>
+				<label for="MTELEFONO_M">Tlf..MÓVIL: </label>
+				<input class="left phone-group" id="mTELEFONO_M" name="MTELEFONO_M">	
+
+				<label for="MTELEFONO_F">Tlf.FIJO: </label>
+				<input class="left phone-group" id="mTELEFONO_F" name="MTELEFONO_F">
+			</p>
+			<p>
+				<label for="memail">Email:</label>
+				<input id="memail" name="memail">
+			</p>
+			<p>
+				<label for="mestudios">N.Estudios</label>
+				<select name="mestudios">
+					<option value="0">Sin Estudios Oficiales</option>
+					<option value="1">Est. Primarios</option>
+					<option value="2">Bachillerato</option>
+					<option value="3">Est. Universitarios</option>
+					<option value="4">F.Profesional Media</option>
+					<option value="4">F.Profesional Superior</option>
+				</select>
+			</p>
+			<p>
+				<div id='txt_auth'>Autorizo a que se me informe por SMS de las ausencias, retrasos, calificaciones, etc.</div>
+				<input type='checkbox' id="auth" name="MAUT_SMS">	
+			</p>
+			<br>
+			<p>
+				<div id='txt_auth'>Autorizo a que se me informe por EMAIL de las ausencias, retrasos, calificaciones, etc.</div>
+				<input type='checkbox' id="auth" name="MAUT_EMAIL">	
+			</p>		
+		</div>
+		<div id="datos_padre">
+			<legend>Datos del padre</legend>
+			<p>
+				<label for="pnombre">Nombre</label>
+				<input id="pnombre" name="pnombre" type="text">
+			</p>
+			<p>
+				<label for="papellidos">Apellidos</label>
+				<input id="papellidos" name="papellidos" type="text">
+			</p>
+			<p>
+				<label for="pdni">NIF</label>
+				<input id="pDNI" name="pDNI" type="text">
+			</p>			
+			<p>
+				<label for="pdomicilio">Domicilio</label>
+				<input id="pdomicilio" name="pdomicilio">
+			</p>
+			<p>
+				<label for="plocalidad">Localidad</label>
+				<select name="plocalidad">
+					<option value="1230">Rivas-Vaciamadrid</option>
+					<option value="0014">Acebeda (La)</option>
+					<option value="0029">Ajalvir</option>
+					<option value="0035">Alameda del Valle</option>
+					<option value="0040">Alamo (El)</option>
+					<option value="0053">Alcalá de Henares</option>
+					<option value="0066">Alcobendas</option>
+					<option value="0072">Alcorcón</option>
+					<option value="0088">Aldea del Fresno</option>
+					<option value="0091">Algete</option>
+					<option value="0105">Alpedrete</option>
+					<option value="0112">Ambite</option>
+					<option value="0127">Anchuelo</option>
+					<option value="0133">Aranjuez</option>
+					<option value="0148">Arganda del Rey</option>
+					<option value="0151">Arroyomolinos</option>
+					<option value="0164">Atazar (El)</option>
+					<option value="0170">Batres</option>
+					<option value="0186">Becerril de la Sierra</option>
+					<option value="0199">Belmonte de Tajo</option>
+					<option value="0210">Berrueco (El)</option>
+					<option value="0203">Berzosa del Lozoya</option>
+					<option value="0225">Boadilla del Monte</option>
+					<option value="0231">Boalo (El)</option>
+					<option value="0246">Braojos</option>
+					<option value="0259">Brea de Tajo</option>
+					<option value="0262">Brunete</option>
+					<option value="0278">Buitrago del Lozoya</option>
+					<option value="0284">Bustarviejo</option>
+					<option value="0297">Cabanillas de la Sierra</option>
+					<option value="0301">Cabrera (La)</option>
+					<option value="0318">Cadalso de los Vidrios</option>
+					<option value="0323">Camarma de Esteruelas</option>
+					<option value="0339">Campo Real</option>
+					<option value="0344">Canencia</option>
+					<option value="0357">Carabaña</option>
+					<option value="0360">Casarrubuelos</option>
+					<option value="0376">Cenicientos</option>
+					<option value="0382">Cercedilla</option>
+					<option value="0395">Cervera de Buitrago</option>
+					<option value="0513">Chapinería</option>
+					<option value="0528">Chinchón</option>
+					<option value="0409">Ciempozuelos</option>
+					<option value="0416">Cobeña</option>
+					<option value="0468">Collado Mediano</option>
+					<option value="0474">Collado Villalba</option>
+					<option value="0455">Colmenar Viejo</option>
+					<option value="0437">Colmenar de Oreja</option>
+					<option value="0421">Colmenar del Arroyo</option>
+					<option value="0442">Colmenarejo</option>
+					<option value="0480">Corpa</option>
+					<option value="0493">Coslada</option>
+					<option value="0506">Cubas de la Sagra</option>
+					<option value="0534">Daganzo de Arriba</option>
+					<option value="0549">Escorial (El)</option>
+					<option value="0552">Estremera</option>
+					<option value="0565">Fresnedillas de la Oliva</option>
+					<option value="0571">Fresno de Torote</option>
+					<option value="0587">Fuenlabrada</option>
+					<option value="0590">Fuente el Saz de Jarama</option>
+					<option value="0604">Fuentidueña de Tajo</option>
+					<option value="0611">Galapagar</option>
+					<option value="0626">Garganta de los Montes</option>
+					<option value="0632">Gargantilla del Lozoya y Pinilla de Buitrago</option>
+					<option value="0647">Gascones</option>
+					<option value="0650">Getafe</option>
+					<option value="0663">Griñón</option>
+					<option value="0679">Guadalix de la Sierra</option>
+					<option value="0685">Guadarrama</option>
+					<option value="0698">Hiruela (La)</option>
+					<option value="0702">Horcajo de la Sierra-Aoslos</option>
+					<option value="0719">Horcajuelo de la Sierra</option>
+					<option value="0724">Hoyo de Manzanares</option>
+					<option value="0730">Humanes de Madrid</option>
+					<option value="0745">Leganés</option>
+					<option value="0758">Loeches</option>
+					<option value="0761">Lozoya</option>
+					<option value="9015">Lozoyuela-Navas-Sieteiglesias</option>
+					<option value="0783">Madarcos</option>
+					<option value="0796">Madrid</option>
+					<option value="0800">Majadahonda</option>
+					<option value="0822">Manzanares el Real</option>
+					<option value="0838">Meco</option>
+					<option value="0843">Mejorada del Campo</option>
+					<option value="0856">Miraflores de la Sierra</option>
+					<option value="0869">Molar (El)</option>
+					<option value="0875">Molinos (Los)</option>
+					<option value="0881">Montejo de la Sierra</option>
+					<option value="0894">Moraleja de Enmedio</option>
+					<option value="0908">Moralzarzal</option>
+					<option value="0915">Morata de Tajuña</option>
+					<option value="0920">Móstoles</option>
+					<option value="0936">Navacerrada</option>
+					<option value="0941">Navalafuente</option>
+					<option value="0954">Navalagamella</option>
+					<option value="0967">Navalcarnero</option>
+					<option value="0973">Navarredonda y San Mamés</option>
+					<option value="0992">Navas del Rey</option>
+					<option value="1006">Nuevo Baztán</option>
+					<option value="1013">Olmeda de las Fuentes</option>
+					<option value="1028">Orusco de Tajuña</option>
+					<option value="1049">Paracuellos de Jarama</option>
+					<option value="1065">Parla</option>
+					<option value="1071">Patones</option>
+					<option value="1087">Pedrezuela</option>
+					<option value="1090">Pelayos de la Presa</option>
+					<option value="1104">Perales de Tajuña</option>
+					<option value="1111">Pezuela de las Torres</option>
+					<option value="1126">Pinilla del Valle</option>
+					<option value="1132">Pinto</option>
+					<option value="1147">Piñuecar-Gandullas</option>
+					<option value="1150">Pozuelo de Alarcón</option>
+					<option value="1163">Pozuelo del Rey</option>
+					<option value="1179">Prádena del Rincón</option>
+					<option value="1185">Puebla de la Sierra</option>
+					<option value="9020">Puentes Viejas</option>
+					<option value="1198">Quijorna</option>
+					<option value="1202">Rascafría</option>
+					<option value="1219">Redueña</option>
+					<option value="1224">Ribatejada</option>
+					<option value="1245">Robledillo de la Jara</option>
+					<option value="1258">Robledo de Chavela</option>
+					<option value="1261">Robregordo</option>
+					<option value="1277">Rozas de Madrid (Las)</option>
+					<option value="1283">Rozas de Puerto Real</option>
+					<option value="1296">San Agustín del Guadalix</option>
+					<option value="1300">San Fernando de Henares</option>
+					<option value="1317">San Lorenzo de El Escorial</option>
+					<option value="1338">San Martín de Valdeiglesias</option>
+					<option value="1322">San Martín de la Vega</option>
+					<option value="1343">San Sebastián de los Reyes</option>
+					<option value="1356">Santa María de la Alameda</option>
+					<option value="1369">Santorcaz</option>
+					<option value="1375">Santos de la Humosa (Los)</option>
+					<option value="1381">Serna del Monte (La)</option>
+					<option value="1408">Serranillos del Valle</option>
+					<option value="1415">Sevilla la Nueva</option>
+					<option value="1436">Somosierra</option>
+					<option value="1441">Soto del Real</option>
+					<option value="1454">Talamanca de Jarama</option>
+					<option value="1467">Tielmes</option>
+					<option value="1473">Titulcia</option>
+					<option value="1489">Torrejón de Ardoz</option>
+					<option value="1505">Torrejón de Velasco</option>
+					<option value="1492">Torrejón de la Calzada</option>
+					<option value="1512">Torrelaguna</option>
+					<option value="1527">Torrelodones</option>
+					<option value="1533">Torremocha de Jarama</option>
+					<option value="1548">Torres de la Alameda</option>
+					<option value="9036">Tres Cantos</option>
+					<option value="1551">Valdaracete</option>
+					<option value="1564">Valdeavero</option>
+					<option value="1570">Valdelaguna</option>
+					<option value="1586">Valdemanco</option>
+					<option value="1599">Valdemaqueda</option>
+					<option value="1603">Valdemorillo</option>
+					<option value="1610">Valdemoro</option>
+					<option value="1625">Valdeolmos-Alalpardo</option>
+					<option value="1631">Valdepiélagos</option>
+					<option value="1646">Valdetorres de Jarama</option>
+					<option value="1659">Valdilecha</option>
+					<option value="1662">Valverde de Alcalá</option>
+					<option value="1678">Velilla de San Antonio</option>
+					<option value="1684">Vellón (El)</option>
+					<option value="1697">Venturada</option>
+					<option value="1718">Villa del Prado</option>
+					<option value="1701">Villaconejos</option>
+					<option value="1723">Villalbilla</option>
+					<option value="1739">Villamanrique de Tajo</option>
+					<option value="1744">Villamanta</option>
+					<option value="1757">Villamantilla</option>
+					<option value="1782">Villanueva de Perales</option>
+					<option value="1760">Villanueva de la Cañada</option>
+					<option value="1776">Villanueva del Pardillo</option>
+					<option value="1795">Villar del Olmo</option>
+					<option value="1809">Villarejo de Salvanés</option>
+					<option value="1816">Villaviciosa de Odón</option>
+					<option value="1821">Villavieja del Lozoya</option>
+					<option value="1837">Zarzalejo</option>
+					<option value="9999">Sin municipio asignado</option>
+			</select>
+			</p>
+			<p>
+				<label for="pprovincia">Provincia</label>
+				<select name="pprovincia">
+					<option value="28">Madrid</option>
+					<option value="2">Albacete</option>
+					<option value="3">Alicante/Alacant</option>
+					<option value="4">Almería</option>
+					<option value="1">Araba/Álava</option>
+					<option value="33">Asturias</option>
+					<option value="5">Ávila</option>
+					<option value="6">Badajoz</option>
+					<option value="7">Balears, Illes</option>
+					<option value="8">Barcelona</option>
+					<option value="48">Bizkaia</option>
+					<option value="9">Burgos</option>
+					<option value="10">Cáceres</option>
+					<option value="11">Cádiz</option>
+					<option value="39">Cantabria</option>
+					<option value="12">Castellón/Castelló</option>
+					<option value="51">Ceuta</option>
+					<option value="13">Ciudad Real</option>
+					<option value="14">Córdoba</option>
+					<option value="15">Coruña, A</option>
+					<option value="16">Cuenca</option>
+					<option value="20">Gipuzkoa</option>
+					<option value="17">Girona</option>
+					<option value="18">Granada</option>
+					<option value="19">Guadalajara</option>
+					<option value="21">Huelva</option>
+					<option value="22">Huesca</option>
+					<option value="23">Jaén</option>
+					<option value="24">León</option>
+					<option value="27">Lugo</option>
+					<option value="25">Lleida</option>
+					<option value="29">Málaga</option>
+					<option value="52">Melilla</option>
+					<option value="30">Murcia</option>
+					<option value="31">Navarra</option>
+					<option value="32">Ourense</option>
+					<option value="34">Palencia</option>
+					<option value="35">Palmas, Las</option>
+					<option value="36">Pontevedra</option>
+					<option value="26">Rioja, La</option>
+					<option value="37">Salamanca</option>
+					<option value="38">Santa Cruz de Tenerife</option>
+					<option value="40">Segovia</option>
+					<option value="41">Sevilla</option>
+					<option value="42">Soria</option>
+					<option value="43">Tarragona</option>
+					<option value="44">Teruel</option>
+					<option value="45">Toledo</option>
+					<option value="46">Valencia/València</option>
+					<option value="47">Valladolid</option>
+					<option value="49">Zamora</option>
+					<option value="50">Zaragoza</option>	
+				</select>
+			</p>
+			<p>
+				<label for="pCP">Cód.Postal</label>
+				<input id="pCP" name="pCP" type="text">
+			</p>
+			<p>
+				<label for="PTELEFONO_M">TLFN.MÓVIL: </label>
+				<input class="left phone-group" id="pTELEFONO_M" name="PTELEFONO_M">	
+
+				<label for="PTELEFONO_F">Tlf.FIJO: </label>
+				<input class="left phone-group" id="pTELEFONO_F" name="PTELEFONO_F">
+			</p>
+			<p>
+				<label for="pemail">Email:</label>
+				<input id="pemail" name="pemail">
+			</p>
+			<p>
+				<label for="pestudios">N.Estudios</label>
+				<select name="pestudios">
+					<option value="0">Sin Estudios Oficiales</option>
+					<option value="1">Est. Primarios</option>
+					<option value="2">Bachillerato</option>
+					<option value="3">Est. Universitarios</option>
+					<option value="4">F.Profesional Media</option>
+					<option value="5">F.Profesional Superior</option>
+				</select>
+			</p>
+			
+			<p>
+				<div id='txt_auth'>Autorizo a que se me informe por SMS de las ausencias, retrasos, calificaciones, etc.</div>
+				<input type='checkbox' id="auth" name="PAUT_SMS">	
+			</p>
+			<br>
+			<p>
+				<div id='txt_auth'>Autorizo a que se me informe por EMAIL de las ausencias, retrasos, calificaciones, etc.</div>
+				<input type='checkbox' id="auth" name="PAUT_EMAIL">	
+			</p>
+		</div>
+		</fieldset>
+<!-- Bloque de asignaturas -->			
+	</div>
+	<div id="bloque">
+		<div id="invisible">
+		<fieldset  class='asignaturas'>
+			<h1>Selección de asignaturas<div id='curso_ca'></div></h1>
+				<div id='modalidad_ca'></div>
+				<p></p>
+				<div id='centro'>
+					<div id='titulo3_ca'></div>
+					<div id='optativas1_ca'></div>
+				</div>
+				<div id='derecha'>
+					<div id='optativas2'>
+						<ul id='lista_optativas_ca' class='lista_optativas_ca'></ul>
+						<div id='caja_seleccion'>
+							<div id='reserva_ca'>Arrastre aquí TODAS las asignaturas de la columna de la izquierda y colóquelas en orden de preferencia</div>
+							<ul class="seleccion_ca"></ul><br/>
+							<div id='reserva_ca2'></div>
+						</div>
+					<div id='aviso_optativas2_ca'>Añada aquí todas las opciones de la izquierda</div>
+				</div>
+			</div>
+		</fieldset>
+		</div>
+		
+		<div id="visible">
+		<fieldset  class="asignaturas">
+		<h1>Selección de asignaturas<div id="curso_actual"></div></h1>
+		<div id="modalidad"></div>
+		<div id="modalidad2"></div>
+		<p></p>
+		<div id='desaparecer'>
+			<div id='centro'>
+				<div id='titulo3'></div>
+				<div id='optativas1'></div>
+			</div>
+		</div>
+		<div id='derecha'>
+			<div id='optativas2'>
+				<ul id='lista_optativas' class='lista_optativas'></ul>
+				<div id="caja_seleccion">
+					<div id="reserva">
+					Arrastre aquí TODAS las asignaturas de la columna de la izquierda
+					y colóquelas en orden de preferencia</div>
+					<div>
+						<ul class="seleccion"></ul>
+					</div>
+					<br/>
+					<div id="reserva2"></div>
+				</div>
+			</div>
+			<div id="aviso_optativas2">Añada aquí todas las opciones de la izquierda</div>
+		</div>
+		</div>
+			
+		
+		</fieldset>
+	</div>
+	<div id="bloque">
+		<fieldset>
+			<h1>Autorizaciones</h1>
+			<div id="autorizaciones">
+				<div id="contenedor">			
+				<div id="autorizacion"><input type="radio" id="auth_s" name="auth_sanitaria" value="1">Autorizo<br/><input type="radio" id="auth_s" name="auth_sanitaria" value="0">No Autorizo</div>
+				<div id="auth_txt">al personal del IES Europa a trasladar a mi hijo/a a un Centro Sanitario en caso de urgencia, así como a que se lleven a cabo aquellas actuaciones que el personal sanitario considere necesario.</div>
+				<label for="auth_sanitaria" class="error">Please select your gender</label>
+
+			</div>
+			<br/>
+            <div id="contenedor">			
+				<div id="autorizacion"><input type="radio" id="auth_p" name="auth_paracetamol" value="1" required>Autorizo<br/><input id="auth_p" type="radio" name="auth_paracetamol" value="0">No Autorizo</div>
+				<div id="auth_txt">la administración de Paracetamol al alumno en caso necesario.
+				</div>
+				<label for="auth_paracetamol" class="error">Please select your gender</label>
+            </div>
+            <br/>
+            <div id="contenedor">			
+				<div id="autorizacion"><input type="radio" id="auth_f" name="auth_fotos" value="1" required>Autorizo<br/><input type="radio" id="auth_f" name="auth_fotos" value="0">No Autorizo</div>
+				<div id="auth_txt">a publicar en el centro, internet o medios acreditados, reportajes, fotos o vídeos de las diversas actividades en las que pudiera participar (dentro del ámbito educativo), en el presente curso en el que se encuentra escolarizado en el IES EUROPA y en los términos que establece el Art. 13 del RD 1720 de 21 de diciembre de 2007 por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica 15/1999 de 13 de diciembre, de protección de datos de carácter personal, para aquellos supuestos no previstos por las leyes.
+				</div>
+				<label for="auth_fotos" class="error">Please select your gender</label>
+            </div>
+            <br/>
+            
+            <div id="contenedor"><div id="autorizacion"><input type='checkbox' class="checkbox" id='agree' name='agree'></div>
+				<div id="auth_txt">ACEPTO las normas de obligado cumplimiento en el IES Europa recogidas en su Plan de Convivencia que puede consultarse en la página web del Centro y (un resumen) en la agenda del alumno.</div>
+				<label for="agree" class="error">Please select your gender</label>    
+            </div>  
+
+		</fieldset>
+	</div>
+	<!--
+	#
+	#
+	
+	<div id="bloque">
+		<fieldset>
+		<h1>Autorizaciones</h1>
+		<div id="autorizaciones">
+            <div id="contenedor">			
+				<div id="autorizacion"><input type="radio" id="auth_s" name="auth_sanitaria" value="1">Autorizo<br/><input type="radio" id="auth_s" name="auth_sanitaria" value="0">No Autorizo</div>
+				<div id="auth_txt">al personal del IES Europa a trasladar a mi hijo/a a un Centro Sanitario en caso de urgencia, así como a que se lleven a cabo aquellas actuaciones que el personal sanitario considere necesario.</div>
+            </div>
+		</fieldset>
+  
+
+			<div id="aut_religion">
+				<p>En cumplimiento con lo dispuesto en el Decreto 23/2007, de 10 de mayo, por el que se establece para la Comunidad de Madrid el currículo de la Educación Secundaria Obligatoria, en el que se regula la enseñanza de la Religión, manifiesto el deseo de que mi hijo/a $NombreAlumno que durante el presente año escolar (2015/2016) cursará $CURSO de ESO, reciba durante este curso, las enseñanzas correspondientes.</p>
+				<input type="radio" name="tiporeligion">R. Católica<br/>
+				<input type="radio" name="tiporeligion">R. Evangélica<br/>
+				<input type="radio" name="tiporeligion">R. Judía<br/>
+				<input type="radio" name="tiporeligion">R. Islámica<br/>
+			</div>
+		</div>		
+	</div>
+	-->
+	<input type="hidden" id="orden_optativas_ca" name="orden_optativas_ca" value="" />
+	<input type="hidden" id="orden_optativas" name="orden_optativas" value="" />
+	<input type="hidden" id="curso" name="curso" value="" />
+	<input type="hidden" id="codigo" name="codigo" value="" />
+	<input class='button' type="submit" value="Enviar" onclick='listado2();'>
+	</form>
+</div><!-- content -->
+</body>
+</html>

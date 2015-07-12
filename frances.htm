@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html><!-- InstanceBegin template="/Templates/plantilla_europa_V2.dwt" codeOutsideHTMLIsLocked="false" -->
+
+<head>  
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+<meta name="description" content="description"/>
+<meta name="keywords" content="keywords"/> 
+<meta name="author" content="author"/> 
+<link rel="stylesheet" type="text/css" href="css-js/default.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css-js/menu.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css-js/fechas.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css-js/highslide.css" media="screen"/>
+<script type="text/javascript" src="css-js/highslide-with-gallery.js"></script>
+<title>IES Europa</title>
+<style type="text/css">
+<!--
+.Estilo1 {font-family: ies}
+-->
+</style>
+<script type="text/javascript">   
+function existe() {
+	var start = document.cookie.indexOf("privacityCookie=");
+	if ((!start) && ("privacityCookie" != document.cookie.substring(0, 15))) 
+		return false;
+	if (start == -1) 
+		return false;
+	return true;
+}
+
+function privacityControl() {
+	if (!existe())
+		document.location = "index.html";
+}
+
+function mostrarFoto (Foto) {
+ if (document.getElementById) {
+  document.getElementById('imgContenedor').src = Foto.href;
+  if (Foto.title) {
+   document.getElementById('imgDescripcion').childNodes[0].nodeValue = Foto.title;
+  } else {
+   document.getElementById('imgDescripcion').childNodes[0].nodeValue = Foto.childNodes[0].nodeValue;
+  }
+  return false;
+ } else {
+  return true;
+ }
+}
+
+
+</script>
+
+<script type="text/javascript">
+hs.graphicsDir = 'graphics/';
+hs.align = 'center';
+hs.transitions = ['expand', 'crossfade'];
+hs.fadeInOut = true;
+hs.outlineType = 'glossy-dark';
+hs.wrapperClassName = 'dark';
+hs.captionEval = 'this.a.title';
+hs.numberPosition = 'caption';
+hs.useBox = true;
+hs.width = 550;
+hs.height = 320;
+//hs.dimmingOpacity = 0.8;
+
+// Add the slideshow providing the controlbar and the thumbstrip
+hs.addSlideshow({
+	//slideshowGroup: 'group1',
+	interval: 5000,
+	repeat: false,
+	useControls: true,
+	fixedControls: 'fit',
+	overlayOptions: {
+		position: 'bottom center',
+		opacity: 0.75,
+		hideOnMouseOut: true
+	},
+	thumbstrip: {
+		position: 'above',
+		mode: 'horizontal',
+		relativeTo: 'expander'
+	}
+});
+
+// Make all images animate to the one visible thumbnail
+var miniGalleryOptions1 = {
+	thumbnailId: 'thumb1'
+}
+</script>
+
+
+<script language="JavaScript">
+//http://javascript.tunait.com/
+//tunait@yahoo.com
+function hora(){
+	var fecha = new Date()
+	var hora = fecha.getHours()
+	var minuto = fecha.getMinutes()
+	var segundo = fecha.getSeconds()
+	var ano = fecha.getFullYear();
+	var mes = fecha.getMonth();
+	var dia = fecha.getDate();
+
+	var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+	var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+	var diasMes = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+	var diaMaximo = diasMes[mes];
+	if (mes == 1 && (((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0)))
+   		diaMaximo = 29;
+
+	if (hora < 10) {hora = "0" + hora}
+	if (minuto < 10) {minuto = "0" + minuto}	
+	if (segundo < 10) {segundo = "0" + segundo}
+
+	var diita = dia + "de " + diasMes[mes] + " de " + ano
+	var horita = hora + ":" + minuto + ":" + segundo
+	document.getElementById('hora').firstChild.nodeValue = horita
+/*	document.getElementById('fecha').firstChild.nodeValue = diita  */
+	tiempo = setTimeout('hora()',1000)
+}
+
+function inicio(){
+/*	document.write('<span id="hora">')
+	document.write('000000</span>')
+	hora()
+document.write('<span id="fecha">')
+	document.write('xxxxxxxxxxxxxxxxx'</span>')
+	hora()  */
+
+var fecha = new Date()
+	
+	var ano = fecha.getFullYear();
+	var mes = fecha.getMonth();
+	var dia = fecha.getDate();
+
+	var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+	var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+	var diasMes = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+	var diaMaximo = diasMes[mes];
+	if (mes == 1 && (((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0)))
+   		diaMaximo = 29;
+
+document.write('<div class="mifecha">');
+document.write('<div class="ano">' + fecha.getFullYear() + '</div>');
+document.write('<div class="dia">' + fecha.getDate() + '</div>');
+document.write('<div class="mes">' + meses[fecha.getMonth()] + '</div>');
+document.write('</div>');	
+
+		
+}
+</script>
+
+
+</head>
+
+<body onLoad="privacityControl();">
+
+<div class="container">
+	
+	<div class="main">
+
+	<!--	<div class="header"> -->
+			<div class="title">
+		  		<img src="img/europa_logo-4.jpg" width="929" height="129"  />
+				<!--	<div id="unaimagen"> -->
+						<img src="img/Cabecera_Bienvenida.jpg" width="833" height="21" />	
+				
+						<!--	<div class="texto">  -->
+						 <script type="text/javascript">inicio() </script>  
+						<!--	</div>
+					</div> --> 
+		
+	  </div>
+	<!--	</div>  -->
+		
+		<div class="sidenav">
+
+			<h1>Curso 2013-2014</h1>
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+			<!--	<li><a href="../equipo_directivo.htm">Equipo Directivo </a></li>
+				<li><a href="../consejo_escolar.htm">Consejo Escolar </a></li>  -->
+				<li><a href="caracteristicas.htm">Características y recursos</a></li>
+				<li><a href="proyecto_educativo.htm">Proyecto Educativo</a></li>
+				<li><a href="documentos/Documentos_de_organizacion_del_centro/ANEXO_II_RRI_Octubre_2011.pdf">Reglamento de Régimen Interior</a></li>
+				<li><a href="ensenanzas.htm">Ense&ntilde;anzas</a></li>
+				<li><a href="tutoresgen.htm">Profesores Tutores</a></li>
+				<li><a href="documentos/calendario2013_2014.pdf">Calendario curso 2013-14</a></li>
+					
+				<!-- <li><a href="../departamentos.htm">Departamentos</a></li>  -->
+				<li><a href="documentos/lib_12_13.pdf">Libros 2013-2014</a></li>				
+				<li><a href="actividades.htm">Actividades Extraescolares</a> </li>
+					<!--<li><a href="../viaje_italia.htm">Viaje a Italia marzo 2010</a> </li>-->
+				<!--<li><a href="../secretaria.htm">Secretaría</a></li>
+				<li><a href="tutores.htm">Profesores Tutores</a></li>-->
+                <li><a href="http://www.educa2.madrid.org/web/revista-digital-ies-europa/inicio;jsessionid=0C8CE8210FC8F38414DBB2F38398C44B">Revista Digital</a> </li>				
+		        <li><a href="orientacion/Selec_2012.pdf">PAU: Pruebas de Acceso a la Universidad</a></li>
+			</ul>
+			   
+		   <h1>Novedades</h1>
+			<ul>
+				 <!--<li><a href="../fin_junio.htm">Actividades fin de curso <img src="../img/atencion.gif" width="40" height="40" /> </a></li>-->
+                 <!--<li><a href="../documentos/Fch_mat_uni_12.pdf">Fechas de matrícula en la universidad para el curso 2012-13</a></li>-->
+                 <!-- <li><a href="../Itineraios_4.htm">Itinerarios 4º curso 2013-2014</a></li>-->
+                 <!--<li><a href="../proc_adm_al.htm">Proceso de admisión de alumnos 2013</a></li>-->
+		         <!--<li><a href="../optativas_inf.htm">Optativas: información</a></li>-->
+				<!--<li><a href="documentos/RENOVACION_CONSEJO_ESCOLAR.pdf"><em><strong>RENOVACI&Oacute;N CONSEJO ESCOLAR CURSO 2013-2014</strong></em></a></li>-->				 
+		    </ul>
+		
+		   <h1>Proyectos</h1>
+			<ul>
+				<li><a href="documentos/plandemejora1.pdf">Plan de Convivencia</a></li>
+				<!--<li><a href="comenius.htm">Comenius</a></li>-->
+			</ul>
+		
+		   <h1>Premios años anteriores</h1>
+			<ul>
+				<li><a href="premios_eso.htm">E.S.O.</a></li>
+				
+			    <li><a href="Premios/compromiso%20educativo.htm">Compromiso Educativo Profesor Julio Pérez</a></li>
+			    <li><a href="Premios/olimpiada_cientifica_euso12.htm">Olimpiada Científica EUSO 2012</a></li>
+			</ul>
+		
+		   <h1>Tabl&oacute;n de anuncios </h1>
+			<ul>
+				<!--<li><a href="../act22dic.htm">Actividades 22 de diciembre</a></li>-->
+				<li><a href="politicadeprivacidad.htm">Política de privacidad.</a></li>
+				<!--<li><a href="../documentos/cart_inic_curs_11_12.pdf">Inicio de curso: acogida de alumnos</a></li>-->
+				<li><a href="mailto:ies.europa.rivas@educa.madrid.org">Correo Institucional</a></li>
+  				<li><a href="ampa.htm">A.M.P.A</a></li>
+				<li><a href="http://www.educa.madrid.org" target="_blank">Portal Educamadrid</a>  </li>
+				<li><a href="http://www.madrid.org/dat_este" target="_blank">DAT Madrid-Este</a>  </li> 
+				<li><a href="http://www.educa.madrid.org/web/ctif.madrideste" target="_blank">CTIF Madrid-Este</a></li>
+
+			    <li><a href="http://www.educa.madrid.org/web/crif.acacias/">CRIF Acacias </a></li>
+		        <li><a href="http://www.madrid.org/cs/Satellite?cid=1152517028720&language=es&pagename=PortalJoven%2FPage%2FJUVE_contenidoFinalMenuIzquierdo">Inforjoven: Programa 14/30</a></li>
+		        <li><a href="http://www.proteccioncivil.org/webinfantil/">Protección Civil: web infantil (a partir de 9 años) </a></li>
+			</ul>
+
+			<h1>B&uacute;squeda</h1>
+			<form action="index.html">
+			<div>
+				<input type="text" name="search" class="styled" /> <input type="submit" value="" class="button" />
+			</div>
+			</form>
+
+		</div>
+		
+	<div id="cssmenu">
+		<ul>
+   	<!--		<li class="active"><a href="../main.html"><span>Inicio</span></a></li> -->
+		<li><a href="main.html"><span>Inicio</span></a></li> 
+   			<li class="has-sub"><a href="#"><span>Organización</span></a>
+      			<ul>
+		 			<li><a href="equipo_directivo.htm"><span>Equipo Directivo</span></a></li>
+		 			<li><a href="consejo_escolar.htm"><span>Consejo Escolar</span></a></li>
+		 			<li><a href="ccp.htm"><span>C.C.P.</span></a></li>
+	  			</ul>
+   			</li>
+   			<li class="has-sub"><a href="#"><span>Departamentos</span></a>
+				<ul>		
+					<li class="has-sub"><a href="#"><span>ESO y Bachillerato</span></a>
+      					<ul>			
+		 					<li><a href="dibujo.htm"><span>Artes Plásticas</span></a></li>
+		 					<li><a href="biologia.htm"><span>Biología y Geología</span></a></li>
+		 					<li><a href="economia.htm"><span>Economía</span></a></li>
+		 					<li><a href="ed_fisica.htm"><span>Ed. Física</span></a></li>
+					
+		 					<li><a href="filosofia.htm"><span>Filosofía</span></a></li>
+							<li><a href="fisica_quimica.htm"><span>Física y Química</span></a></li>
+							<li><a href="frances.htm"><span>Francés</span></a></li>
+		 					<li><a href="geografia_historia.htm"><span>Geografía e Historia</span></a></li>
+	     					<li><a href="ingles.htm"><span>Inglés</span></a></li>
+							<li><a href="latin_y_griego.htm"><span>Latín</span></a></li>
+							<li><a href="lengua_y_literatura.htm"><span>Lengua</span></a></li>
+							<li><a href="matematicas.htm"><span>Matemáticas</span></a></li>
+							<li><a href="musica.htm"><span>Música</span></a></li>
+							<li><a href="religion.htm"><span>Religión</span></a></li>
+							<li><a href="tecnologia.htm"><span>Tecnología</span></a></li>						
+						</ul>
+					</li>
+					<li class="has-sub"><a href="#"><span>Familias Profesionales</span></a>
+   					<ul>
+						<li><a href="informatica.htm"><span>Informática y Comunicaciones</span></a></li>
+						<li><a href="ssc_ei.htm"><span>S.S.C. Educación Infantil</span></a></li>
+					</ul>
+					</li>
+					<li class="has-sub"><a href="#"><span>Genéricos</span></a>
+					<ul>
+						<li><a href="orientacion.htm"><span>Orientación</span></a></li>
+						<li><a href="actividades.htm">Extraescolares</a> </li>
+						<li><a href="tic.htm"><span>TIC</span></a></li>
+					</ul>
+					</li>
+				</ul>
+   			</li>
+						
+   			<li><a href="secretaria.htm"><span>Secretaría</span></a></li> 
+   			<li><a href="contacto.htm"><span>Contacto</span></a></li>
+ 		</ul>
+	</div>
+	<!--  FIN  cssmenu  -->
+		
+		<div class="content"><!-- InstanceBeginEditable name="contenido" -->
+			<div class="item">
+              <h1>Departamento de Franc&eacute;s </h1>
+             <!-- <div class="descr">
+                <p>Los profesores que componen el Departamento son</p>
+                <ol>
+                  <li class="item"> D&ordf; M&ordf; Elena Rita Garc&iacute;a L&oacute;pez (Jefe de Departamento). </li>
+                </ol>
+              </div>-->
+             
+              <a href="frances/index.html"><cite>Web del Departamento </cite></a>
+              
+		    </div>
+		
+			<!-- InstanceEndEditable --></div> 	
+			 
+		
+		<div class="clearer"><span></span></div>
+
+		<div class="footer">IES Europa. Curso 2013-2014
+		<img src="img/Pie_Pagina_2013.jpg" />
+		
+		</div>
+
+</div>
+
+</body>
+
+<!-- InstanceEnd --></html>
